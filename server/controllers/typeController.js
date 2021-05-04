@@ -10,7 +10,6 @@ class TypeController {
     }catch(e){
       next(ApiError.badRequest(e.message))
     }
-
   }
 
   async getAll(req, res){
@@ -21,7 +20,7 @@ class TypeController {
   async delete(req, res){
     const {id} = req.body
     const types = await Type.destroy({where: { id: id }})
-    return res.json(`123 ${types}`)
+    return res.json(`delete ${types}`)
   }
 
 }

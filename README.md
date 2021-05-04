@@ -17,3 +17,16 @@ server
 express-fileupload
 
 uuid
+
+    jsonwebtoken 
+
+    bcrypt
+
+client 
+    axios 
+    react-router-dom
+    mobx
+    mobx-react-lite
+
+    react-bootstrap 
+    bootstrap
