@@ -15,6 +15,9 @@ export default class DeviceStore {
             {id: 2, name: `Iphone 12 pro`, price: 25000, rating: 5, img: "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default"},
             {id: 3, name: `Iphone 12 pro`, price: 25000, rating: 5, img: "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default"},
             {id: 4, name: `Iphone 12 pro`, price: 25000, rating: 5, img: "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default"},
+            {id: 5, name: `Iphone 12 pro`, price: 25000, rating: 5, img: "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default"},
+            {id: 6, name: `Iphone 12 pro`, price: 25000, rating: 5, img: "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default"},
+            {id: 7, name: `Iphone 12 pro`, price: 25000, rating: 5, img: "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default"},
         ]
         this._selectedType = {}
         this._selectedBrand = {}
