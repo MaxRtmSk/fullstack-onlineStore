@@ -16,6 +16,7 @@ export default class DeviceStore {
             {id: 3, name: `Iphone 12 pro`, price: 25000, rating: 5, img: "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default"},
             {id: 4, name: `Iphone 12 pro`, price: 25000, rating: 5, img: "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default"},
         ]
+        this._selectedType = {}
         makeAutoObservable(this)
     }
 
@@ -29,7 +30,9 @@ export default class DeviceStore {
     setDevices(devices){
         this._user = devices
     }
-
+    setSelectedType(type){
+        this._selectedType = type
+    }
     
     get types(){
         return this._types
@@ -41,5 +44,9 @@ export default class DeviceStore {
 
     get devices(){
         return this._devices
+    }
+
+    get selectedType(){
+        return this._selectedType
     }
 }
