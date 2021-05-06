@@ -1,26 +1,22 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import bigStar from "../assets/bigStar.png";
+import {useParams} from 'react-router-dom'
+import {fetchOneDevice} from "../http/deviceAPI";
 
 const DevicePage = () => {
-  const device = {
-    id: 1,
-    name: `Iphone 12 pro`,
-    price: 25000,
-    rating: 5,
-    img:
-      "https://timonvs.gallerycdn.vsassets.io/extensions/timonvs/reactsnippetsstandard/1.1.0/1488031987588/Microsoft.VisualStudio.Services.Icons.Default",
-  };
-  const description = [
-    { id: 1, title: "Оперативаная память", description: "35 гб" },
-    { id: 2, title: "Камера", description: "12 мп" },
-    { id: 3, title: "Акамулятор", description: "4000" },
-  ];
+  const [device, setDevice] = useState({info: []})
+  const {id} = useParams()
+  useEffect(() => {
+    fetchOneDevice(id).then((data) => {
+      setDevice(data);
+    });
+  }, [])
   return (
     <Container className={"mt-3"}>
       <Row>
         <Col md={4}>
-          <Image height={300} width={300} src={device.img} />
+          <Image height={300} width={300} src={process.env.REACT_APP_API_URL + device.img} />
         </Col>
         <Col md={4}>
           <Row className={"d-flex flex-column align-items-center"}>
@@ -58,7 +54,7 @@ const DevicePage = () => {
       </Row>
       <Row className={"d-flex flex-column m-3"}>
         <h2>Характеристики</h2>
-        {description.map((item, index) => (
+        {device.info.map((item, index) => (
           <Row
             key={item.id}
             style={{

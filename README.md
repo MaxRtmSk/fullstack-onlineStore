@@ -30,3 +30,5 @@ client
 
     react-bootstrap 
     bootstrap
+
+    jwt_decode
