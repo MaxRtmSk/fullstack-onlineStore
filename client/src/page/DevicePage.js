@@ -1,22 +1,26 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Card, Col, Container, Image, Row } from "react-bootstrap";
 import bigStar from "../assets/bigStar.png";
-import {useParams} from 'react-router-dom'
-import {fetchOneDevice} from "../http/deviceAPI";
+import { useParams } from "react-router-dom";
+import { fetchOneDevice } from "../http/deviceAPI";
 
 const DevicePage = () => {
-  const [device, setDevice] = useState({info: []})
-  const {id} = useParams()
+  const [device, setDevice] = useState({ info: [] });
+  const { id } = useParams();
   useEffect(() => {
     fetchOneDevice(id).then((data) => {
       setDevice(data);
     });
-  }, [])
+  }, []);
   return (
     <Container className={"mt-3"}>
       <Row>
         <Col md={4}>
-          <Image height={300} width={300} src={process.env.REACT_APP_API_URL + device.img} />
+          <Image
+            height={300}
+            width={300}
+            src={process.env.REACT_APP_API_URL + device.img}
+          />
         </Col>
         <Col md={4}>
           <Row className={"d-flex flex-column align-items-center"}>
