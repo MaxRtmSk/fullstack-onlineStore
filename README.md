@@ -1,4 +1,10 @@
-server
+# Online Store
+
+# 👷 Project is under development 🛠
+
+## About
+
+## Server
 
 ​ express
 
@@ -16,7 +22,8 @@ uuid
 
     bcrypt
 
-client
+## Client
+
 axios
 react-router-dom
 mobx
@@ -27,7 +34,9 @@ mobx-react-lite
 
     jwt_decode
 
-## Сервер файл `.env`
+## Launch Instructions
+
+### Server `.env` fiel settings
 
 ```
 PORT=<порт на котором будет запущено приложение>
@@ -39,7 +48,7 @@ DB_PORT=5432
 SECRET_KEY=<ваш секретный ключ для подписи JWT>
 ```
 
-## Клиент файл `.env`
+### Client `.env` fiel settings
 
 ```
 REACT_APP_API_URL=<url на базу данных>
