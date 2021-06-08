@@ -39,7 +39,7 @@ const CreateDevice = observer(({ show, onHide }) => {
   };
 
   const addDevice = () => {
-    const formData = new FormData() 
+    const formData = new FormData()
     formData.append('name', name)
     formData.append('price', `${price}`)//значение может быть либо строковым, либо Blob (грубо говоря набор битов)
     formData.append('img', file)

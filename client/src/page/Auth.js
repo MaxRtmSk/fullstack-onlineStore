@@ -9,7 +9,7 @@ import { Context } from "../index";
 const Auth = observer(() => {
   const { user } = useContext(Context);
   const location = useLocation();
-  const history = useHistory()
+  const history = useHistory();
   const isLogin = location.pathname === LOGIN_ROUTE;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,9 +24,9 @@ const Auth = observer(() => {
       }
       user.setUser(data);
       user.setIsAuth(true);
-      history.push(SHOP_ROUTE)
+      history.push(SHOP_ROUTE);
     } catch (error) {
-      alert(error.response.data.message)
+      alert(error.response.data.message);
     }
   };
 

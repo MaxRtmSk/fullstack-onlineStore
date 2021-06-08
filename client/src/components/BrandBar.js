@@ -1,27 +1,24 @@
-import { observer } from "mobx-react-lite";
-import React, { useContext } from "react";
-import { Card, Row } from "react-bootstrap";
-import { Context } from "../index";
+import React from "react";
+import { Checkbox } from "antd";
+import { Menu, Dropdown } from "antd";
 
-const BrandBar = observer(() => {
-  const { device } = useContext(Context);
+export const BrandBar = (device, fun) => {
   return (
-    <Row className={"d-flex"}>
+    <Menu>
       {device.brands.map((brand) => (
-        <Card
-          key={brand.id}
-          style={{ cursor: "pointer" }}
-          className="p-3"
-          onClick={() => {
-            device.setSelectedBrand(brand);
-          }}
-          border={brand.id === device.selectedBrand.id ? 'danger' : 'light'}
-        >
-          {brand.name}
-        </Card>
+        <Menu.Item key={brand.id}>
+          <Checkbox
+            name={brand.name}
+            checked={brand.id === device.selectedBrand.id}
+            onChange={() => {
+              console.log("hello");
+              device.setSelectedBrand(brand);
+            }}
+          >
+            {brand.name}
+          </Checkbox>
+        </Menu.Item>
       ))}
-    </Row>
+    </Menu>
   );
-});
-
-export default BrandBar;
+};

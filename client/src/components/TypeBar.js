@@ -1,26 +1,24 @@
-import React, { useContext } from "react";
-import { Context } from "../index";
-import { ListGroup } from "react-bootstrap";
-import { observer } from "mobx-react-lite";
+import React from "react";
+import { Checkbox } from "antd";
+import { Menu } from "antd";
 
-const TypeBar = observer(() => {
-  const { device } = useContext(Context);
+export const TypeBar = (device) => {
   return (
-    <ListGroup>
+    <Menu>
       {device.types.map((type) => (
-        <ListGroup.Item
-          style={{ cursor: "pointer" }}
-          active={type.id === device.selectedType.id}
-          key={type.id}
-          onClick={() => {
-            device.setSelectedType(type);
-          }}
-        >
-          {type.name}
-        </ListGroup.Item>
+        <Menu.Item key={type.id}>
+          <Checkbox
+            name={type.name}
+            checked={type.id === device.selectedType.id}
+            onChange={() => {
+              console.log("hello");
+              device.setSelectedType(type);
+            }}
+          >
+            {type.name}
+          </Checkbox>
+        </Menu.Item>
       ))}
-    </ListGroup>
+    </Menu>
   );
-});
-
-export default TypeBar;
+};
