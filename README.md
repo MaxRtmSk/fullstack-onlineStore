@@ -1,8 +1,30 @@
 # Online Store
 
-# 👷 Project is under development 🛠
+<p align="center">
+<img  src="https://kadastrru.info/media/1116/9f9599_39450184e486440095f2c37dbaeb00f4.png?width=500&height=272.7272727272727"  
+alt="Markdown Monster icon"  
+height="220px"/>
+</p>
+
+<p align="center">
+	👷 Project is under development 🛠
+</p>
 
 ## About
+
+
+
+## Client
+
+axios
+react-router-dom
+mobx
+mobx-react-lite
+
+    react-bootstrap
+    bootstrap
+
+    jwt_decode
 
 ## Server
 
@@ -21,18 +43,6 @@ uuid
     jsonwebtoken
 
     bcrypt
-
-## Client
-
-axios
-react-router-dom
-mobx
-mobx-react-lite
-
-    react-bootstrap
-    bootstrap
-
-    jwt_decode
 
 ## Launch Instructions
 
