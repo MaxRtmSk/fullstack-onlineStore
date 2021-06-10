@@ -11,7 +11,7 @@ import {
 } from "../utils/consts";
 import { observer } from "mobx-react-lite";
 import { useHistory } from "react-router-dom";
-import { Button, Tooltip, Menu } from "antd";
+import { Menu } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
 const { SubMenu } = Menu;
