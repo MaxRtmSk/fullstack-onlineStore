@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../index";
-import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { Button, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import {
   ADMIN_ROUTE,
@@ -12,6 +11,10 @@ import {
 } from "../utils/consts";
 import { observer } from "mobx-react-lite";
 import { useHistory } from "react-router-dom";
+import { Button, Tooltip, Menu } from "antd";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+
+const { SubMenu } = Menu;
 
 const NavBar = observer(() => {
   const { user } = useContext(Context);
@@ -23,42 +26,35 @@ const NavBar = observer(() => {
   };
 
   return (
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <NavLink to={SHOP_ROUTE} style={{ color: "white" }}>
-          Магазин
-        </NavLink>
-        <NavLink to={BASKET_ROUTE} style={{ color: "white" }}>
-          Корзина
-        </NavLink>
+    <Container>
+      <Menu theme="dark" mode="horizontal">
+        <Menu.Item key="1">
+          <NavLink to={SHOP_ROUTE}>Магазин</NavLink>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <NavLink to={BASKET_ROUTE} style={{ color: "white" }}>
+            <ShoppingCartOutlined style={{ fontSize: "20px" }} />
+          </NavLink>
+        </Menu.Item>
         {user.isAuth ? (
-          <Nav className="ml-auto" style={{ color: "white" }}>
-            <Button
-              variant={"outline-light"}
-              onClick={() => history.push(ADMIN_ROUTE)}
-            >
+          <SubMenu key="SubMenu" title="Пользователь" className="ml-auto">
+            <Menu.Item key="3" onClick={() => history.push(ADMIN_ROUTE)}>
               Админ панель
-            </Button>
-            <Button
-              variant={"outline-light"}
-              onClick={() => logOut()}
-              className="ml-3"
-            >
+            </Menu.Item>
+            <Menu.Item key="4" onClick={() => logOut()}>
               Выйти
-            </Button>
-          </Nav>
+            </Menu.Item>
+          </SubMenu>
         ) : (
-          <Nav className="ml-auto" style={{ color: "white" }}>
-            <Button
-              variant={"outline-light"}
-              onClick={() => history.push(LOGIN_ROUTE)}
-            >
-              Авторизация
-            </Button>
-          </Nav>
+          <Menu.Item
+            className="ml-auto"
+            onClick={() => history.push(LOGIN_ROUTE)}
+          >
+            Авторизация
+          </Menu.Item>
         )}
-      </Container>
-    </Navbar>
+      </Menu>
+    </Container>
   );
 });
 

@@ -1,9 +1,12 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Card, Col, Image } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { Context } from "..";
 import star from "../assets/star.png";
 import { DEVICE_ROUTE } from "../utils/consts";
+import { Card } from "antd";
+
+const { Meta } = Card;
 
 const DeviceItem = ({ device }) => {
   const history = useHistory();
@@ -23,23 +26,11 @@ const DeviceItem = ({ device }) => {
   return (
     <Col md={3} onClick={() => history.push(DEVICE_ROUTE + "/" + device.id)}>
       <Card
-        className="mt-3"
-        style={{ width: 150, cursor: "pointer" }}
-        border={"light"}
+        cover={
+          <img alt="example" src={process.env.REACT_APP_API_URL + device.img} />
+        }
       >
-        <Image
-          width={150}
-          height={150}
-          src={process.env.REACT_APP_API_URL + device.img}
-        />
-        <div className="text-black-50 mt-1 d-flex justify-content-between align-items-center">
-          <div>{deviceBrand.name}</div>
-          <div className="d-flex align-items-center">
-            <div>{device.rating}</div>
-            <Image width={15} height={15} src={star} />
-          </div>
-        </div>
-        <div>{device.name}</div>
+        <Meta title={device.name} description={deviceBrand.name} />
       </Card>
     </Col>
   );
