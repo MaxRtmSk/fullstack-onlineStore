@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:13
+    ports:
+      - "5433:5433"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - ./server/config:/app/config
+      - ./server/src:/app/src
+    ports:
+      - "5000:5000"
