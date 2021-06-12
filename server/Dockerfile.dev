@@ -1,11 +1,14 @@
 FROM node:14
 
-WORKDIR /app
-
-COPY package*.json ./
-RUN npm install
-
-COPY . .
 EXPOSE 5000
 
-CMD ["node", "server"]
+RUN npm i npm@latest -g
+
+COPY package*.json ./
+RUN npm install --no-optional && npm cache clean --force
+
+WORKDIR /server
+COPY . .
+
+
+CMD ["node", "index.js"]

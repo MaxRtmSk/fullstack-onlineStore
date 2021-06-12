@@ -1,12 +1,14 @@
-FROM node:16-alpine3.11
+FROM node:13.12.0-alpine
 
-EXPOSE 8080
-RUN mkdir -p / app / public / app / src 
-WORKDIR / app
+WORKDIR /app
 
-COPY package.json /app/package.json
-COPY package-lock.json /app/package-lock.json
+ENV PATH /app/node_modules/.bin:$PATH
 
-RUN npm install
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
 
-CMD ["npm", "run", "start"]
+COPY . ./
+
+CMD ["npm", "start"]
