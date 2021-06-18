@@ -3,12 +3,11 @@ import { useContext, useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Context } from ".";
 import AppRouter from "./navigation/AppRouter";
-import NavBar from "./components/NavBar";
+import { Header } from "./components/Header";
 import { check } from "./http/useAPI";
-// import { Spinner } from "react-bootstrap";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
-const { Header, Content } = Layout;
+const { Content, Footer } = Layout;
 
 const App = observer(() => {
 	const { user } = useContext(Context);
@@ -34,12 +33,13 @@ const App = observer(() => {
 	return (
 		<BrowserRouter>
 			<Layout>
-				<Header>
-					<NavBar />
-				</Header>
-				<Content>
-					<AppRouter />
-				</Content>
+				<Header />
+
+				<AppRouter />
+
+				<Footer style={{ textAlign: "center" }}>
+					Ant Design ©2012 Created by Ant UED
+				</Footer>
 			</Layout>
 		</BrowserRouter>
 	);
